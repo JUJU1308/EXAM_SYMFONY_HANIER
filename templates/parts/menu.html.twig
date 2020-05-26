@@ -1,4 +1,5 @@
 <ul>
     <li><a href="{{ path('liste_employe') }}">Voir la liste des employés</a></li>
-    <li><a href="{{ path('liste_employe') }}">Se déconnecter</a></li>
+    <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+    <li>Connecté en tant que : {{app.user.email}}</li>
 </ul>
