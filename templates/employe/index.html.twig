@@ -1,0 +1,48 @@
+{% extends 'base_connected.html.twig' %}
+
+
+{% block title %}Employe Controller{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+    <h2>Liste des employés : </h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">{{ 'nom'|trans }}</th>
+            <th scope="col">{{ 'prenom'|trans }}</th>
+            <th scope="col">{{ 'secteur'|trans }}</th>
+            <th scope="col">{{ 'action'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for employe in employes %}
+        <tr>
+            <th scope="row">{{ employe.id }}</th>
+            <td>{{ employe.nom }}</td>
+            <td>{{ employe.prenom }}</td>
+            <td>{{ employe.secteur }}</td>
+
+            <td>
+                <a href="{{ path('update_employe', {'employe': employe.id}) }}">{{ 'edit'|trans }}</a><br><br>
+                <a href="{{ path('delete_employe', {'employe': employe.id}) }}">{{ 'delete'|trans }}</a><br><br>
+
+
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('add_employe') }}">{{ 'add_employe'|trans }} ! </a>
+
+</div>
+{% endblock %}
+
